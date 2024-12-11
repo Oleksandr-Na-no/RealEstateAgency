@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+  <head>
+    <title>REALESTATE.AGENT</title>
+    <link rel="stylesheet" href="{% static 'styles/top.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+  </head>
+  <body>
+    <div class="header">
+      <div class="links">
+        <a class="logo", href="..">
+          <img src="{% static 'images/logo.png' %}" alt="Logo">
+        </a>
+        <a class="logo", href="..">
+          <h1>REALESTATE.AGENT</h1>
+        </a>
+      </div>
+    
+      <div class="links">
+        <a href="/admin/">Admin</a>
+        <a href="/realtor/">Realtor</a>
+        <a href="/About_us/">About us</a>
+      </div>
+    </div>
+    
+
+    <!-- Замінили клас на grid-container -->
+    <div class="grid-container">
+      {% for house in houses %}
+      <div class="house-card">
+        <a class="card-button" href="{% url 'house' id=house.id %}" >
+        <img class="house-image" src="{{ house.pevImage.url }}" alt="Image of House">
+          <div class="house-info">
+              <p class="house-price">${{ house.price }}</p>
+              <p class="house-address">{{ house.address }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

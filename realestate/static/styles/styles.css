@@ -1,0 +1,64 @@
+
+.card-button{
+    text-decoration: none; /* Прибирає підкреслення */
+    color: inherit; /* Успадковує колір від батьківського елемента */
+}
+
+.card-button {
+    color: inherit; /* При наведенні не змінюється колір */
+    text-decoration: none; /* Підкреслення також не з'являється */
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Автоматичне коригування колонок */
+    gap: 20px;
+    padding: 20px;
+}
+
+.house-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+}
+
+.house-card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.house-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.house-info {
+    margin-top: 5px; /* Зменшуємо верхній відступ */
+    display: flex;
+    flex-direction: column; /* Вертикальне вирівнювання елементів */
+    align-items: flex-start; /* Вирівнюємо всі елементи по лівому краю */
+}
+
+.house-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0; 
+    margin-left: 5px;
+}
+
+.house-address {
+    font-size: 14px;
+    color: #666;
+    margin: 0; 
+    margin-left: 5px;
+}
+
+
+
+

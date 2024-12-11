@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\ImageEditor.dir\\main.cpp.obj",
+            "outputs": [
+                "C:\\Users\\Admin\\Desktop\\storefront\\realestate\\ImageEditor\\cmake-build-debug\\vc140.pdb",
+                "CMakeFiles\\ImageEditor.dir\\main.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

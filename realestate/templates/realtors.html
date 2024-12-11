@@ -1,0 +1,72 @@
+{% load static %}
+<html>
+  <head>
+    <title>Realtor Tasks</title>
+    <link rel="stylesheet" href="{% static 'styles/top.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/house_styles.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="links">
+        <a class="logo", href="..">
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
+        </a>
+        <a class="logo", href="..">
+            <h1>REALESTATE.AGENT</h1>
+        </a>
+      </div>
+      <div class="links">
+        <a href="/admin/">Admin</a>
+        <a href="/realtor/">Realtor</a>
+        <a href="/About_us/">About us</a>
+      </div>
+    </div>
+
+    <h2>Select a Realtor to View Their Tasks</h2>
+
+    <select id="realtorSelect">
+      <option value="">-- Select Realtor --</option>
+      {% for realtor in realtors %}
+      <option value="{{ realtor.id }}">{{ realtor.name }}</option>
+      {% endfor %}
+    </select>
+
+    <h3>Tasks:</h3>
+    <ul id="tasksList"></ul>
+
+    <script>
+      document.getElementById('realtorSelect').addEventListener('change', function() {
+        const realtorId = this.value;
+        const tasksList = document.getElementById('tasksList');
+        tasksList.innerHTML = ''; // Очистити список завдань
+
+        if (realtorId) {
+          fetch(`/get_realtor_tasks/${realtorId}/`)
+            .then(response => response.json())
+            .then(data => {
+              if (data.error) {
+                alert(data.error);
+                return;
+              }
+
+              data.tasks.forEach(task => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                  <strong>Date & Time:</strong> ${task.time} <br>
+                  <strong>House:</strong> <a href="${task.house.url}" target="_blank">${task.house.address}</a> <br>
+                  <strong>Client Name:</strong> ${task.client.name} <br>
+                  <strong>Phone:</strong> ${task.client.phone} <br><br>
+                `;
+                tasksList.appendChild(listItem);
+              });
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('Failed to load tasks. Please try again.');
+            });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+  <head>
+    <title>REALESTATE.AGENT</title>
+    <link rel="stylesheet" href="{% static 'styles/top.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/house_styles.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+  </head>
+  <body>
+    <div class="header">
+        <div class="links">
+            <a class="logo", href="../..">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+            </a>
+            <a class="logo", href="../..">
+                <h1>REALESTATE.AGENT</h1>
+            </a>
+        </div>
+      
+        <div class="links">
+            <a href="/admin/">Admin</a>
+            <a href="/realtor/">Realtor</a>
+            <a href="/About_us/">About us</a>
+        </div>
+      </div>
+
+    
+    <div style="overflow:auto" class="content">
+        <div class="img-box">
+            <img class="house-image" src="{{ house.pevImage.url }}" alt="Image of House">
+        </div>
+
+        <div class="pading-action">
+            <div class="action-box">
+                <label for="birthdaytime">Запис</label>
+                <br>
+                <input type="tel" id="phone" name="phone" pattern="[+]{1}[0-9]{11,14}" required value = "+380956433884">
+                <br>
+                <input type="text" id="name" name="name" value = "Max">
+                <br>
+                <!-- <input type="datetime-local" id="birthdaytime" name="birthdaytime" value="2018-06-12T19:30"> -->
+                
+                <label>Часи запису</label>
+                <div class="grid-container">
+                    {% for appointment in freeAppointments %}
+                        <div class="block">
+                            <p class="date">{{ appointment.datetime|date:"Y-m-d" }}</p>
+                            <p class="time">{{ appointment.datetime|time:"H:i" }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <button type="button" id="submitButton">Записатися</button>
+            </div>
+        </div>
+
+        <div class="pading-description">
+            <div class="description-box">
+                <p>{{house.description}}</p>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

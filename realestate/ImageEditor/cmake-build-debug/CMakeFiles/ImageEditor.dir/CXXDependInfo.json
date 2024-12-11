@@ -1,0 +1,21 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "MSVC",
+	"compiler-id" : "MSVC",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "C:/Users/Admin/Desktop/storefront/realestate/ImageEditor/cmake-build-debug",
+	"dir-cur-src" : "C:/Users/Admin/Desktop/storefront/realestate/ImageEditor",
+	"dir-top-bld" : "C:/Users/Admin/Desktop/storefront/realestate/ImageEditor/cmake-build-debug",
+	"dir-top-src" : "C:/Users/Admin/Desktop/storefront/realestate/ImageEditor",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"C:\\tools\\opencv\\build\\include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Users/Admin/Desktop/storefront/realestate/ImageEditor/cmake-build-debug/CMakeFiles/ImageEditor.dir"
+}
